@@ -1,0 +1,12 @@
+<h1>Web Socket Client</h1>
+<script>
+    let ws = new WebSocket('ws://localhost:7000');
+
+    ws.onopen = (e) => {
+        console.log(e);
+        ws.send("Hello server!");
+        ws.addEventListener("message", event => {
+            console.log("Message from server ", event.data);
+        });
+    };
+</script>
